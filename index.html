@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fancy Text Generator | Create Cool Fonts for Social Media</title>
+    <meta name="description" content="Generate fancy/cool text styles for social media bios, posts, and gaming usernames. Over 50+ font styles available instantly!">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8927713821265553" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --dark-color: #2d3436;
+            --light-color: #f5f6fa;
+            --success-color: #00b894;
+            --warning-color: #fdcb6e;
+            --error-color: #d63031;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        header .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .generator-box {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .input-section, .output-section {
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            resize: vertical;
+            transition: border 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #5649c0;
+        }
+
+        #copy-btn {
+            background-color: var(--success-color);
+        }
+
+        #copy-btn:hover {
+            background-color: #00a884;
+        }
+
+        .styles-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .styles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .style-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .style-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .style-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .ad-container {
+            width: 100%;
+            background: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .top-ad {
+            margin-bottom: 30px;
+        }
+
+        .bottom-ad {
+            margin-top: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--dark-color);
+            color: white;
+            margin-top: 30px;
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--success-color);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.3s;
+            z-index: 1000;
+        }
+
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .styles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ad-container top-ad">
+        <!-- Ad Space 1 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-8927713821265553"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Fancy Text Generator</h1>
+            <p class="subtitle">Create stylish text for Instagram, Facebook, Twitter, TikTok, and more!</p>
+        </header>
+
+        <main>
+            <div class="generator-box">
+                <div class="input-section">
+                    <textarea id="normal-text" placeholder="Type your text here..." rows="4"></textarea>
+                    <button id="generate-btn">Generate Fancy Text</button>
+                </div>
+
+                <div class="output-section">
+                    <textarea id="fancy-text" placeholder="Your fancy text will appear here..." readonly rows="4"></textarea>
+                    <button id="copy-btn">Copy to Clipboard</button>
+                </div>
+            </div>
+
+            <div class="styles-section">
+                <h2>Available Styles</h2>
+                <div class="styles-grid" id="styles-container">
+                    <!-- Styles will be added by JavaScript -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="ad-container bottom-ad">
+        <!-- Ad Space 2 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-8927713821265553"
+             data-ad-slot="0987654321"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <footer>
+        <p>© 2023 Fancy Text Generator | All styles are generated client-side</p>
+    </footer>
+
+    <div class="notification" id="notification">Copied to clipboard!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Text styles data
+            const textStyles = [
+                {
+                    name: "Bold",
+                    description: "𝐁𝐨𝐥𝐝 𝐓𝐞𝐱𝐭",
+                    transform: text => text.split('').map(c => {
+                        const code = c.charCodeAt(0);
+                        return (code >= 65 && code <= 90) || (code >= 97 && code <= 122) 
+                            ? String.fromCharCode(code + 119743) 
+                            : c;
+                    }).join('')
+                },
+                {
+                    name: "Italic",
+                    description: "𝘐𝘵𝘢𝘭𝘪𝘤 𝘛𝘦𝘹𝘵",
+                    transform: text => text.split('').map(c => {
+                        const code = c.charCodeAt(0);
+                        return (code >= 65 && code <= 90) || (code >= 97 && code <= 122) 
+                            ? String.fromCharCode(code + 119737) 
+                            : c;
+                    }).join('')
+                },
+                {
+                    name: "Bold Italic",
+                    description: "𝙱𝚘𝚕𝚍 𝙸𝚝𝚊𝚕𝚒𝚌",
+                    transform: text => text.split('').map(c => {
+                        const code = c.charCodeAt(0);
+                        return (code >= 65 && code <= 90) || (code >= 97 && code <= 122) 
+                            ? String.fromCharCode(code + 119749) 
+                            : c;
+                    }).join('')
+                },
+                {
+                    name: "Script",
+                    description: "𝒮𝒸𝓇𝒾𝓅𝓉 𝒯𝑒𝓍𝓉",
+                    transform: text => text.split('').map(c => {
+                        const code = c.charCodeAt(0);
+                        return (code >= 65 && code <= 90) 
+                            ? String.fromCharCode(code + 119743 - 65 + 120068)
+                            : (code >= 97 && code <= 122)
+                            ? String.fromCharCode(code + 119737 - 97 + 120070)
+                            : c;
+                    }).join('')
+                },
+                {
+                    name: "Bold Script",
+                    description: "𝓑𝓸𝓵𝓭 𝓢𝓬𝓻𝓲𝓹𝓽",
+                    transform: text => text.split('').map(c => {
+                        const code = c.charCodeAt(0);
+                        return (code >= 65 && code <= 90) || (code >= 97 && code <= 122) 
+                            ? String.fromCharCode(code + 119749 - (c <= 'Z' ? 65 : 97) + (c <= 'Z' ? 120068 : 120070))
+                            : c;
+                    }).join('')
+                },
+                {
+                    name: "Gothic",
+                    description: "𝔊𝔬𝔱𝔥𝔦𝔠 𝔗𝔢𝔵𝔱",
+                    transform: text => text.split('').map(c => {
+                        const code = c.charCodeAt(0);
+                        return (code >= 65 && code <= 90) 
+                            ? String.fromCharCode(code + 119743 - 65 + 120068 + 6)
+                            : (code >= 97 && code <= 122)
+                            ? String.fromCharCode(code + 119737 - 97 + 120070 + 6)
+                            : c;
+                    }).join('')
+                },
+                {
+                    name: "Double Struck",
+                    description: "𝔻𝕠𝕦𝕓𝕝𝕖 𝕊𝕥𝕣𝕦𝕔𝕜",
+                    transform: text => text.split('').map(c => {
+                        const code = c.charCodeAt(0);
+                        return (code >= 65 && code <= 90) || (code >= 97 && code <= 122) 
+                            ? String.fromCharCode(code + 119743 - (c <= 'Z' ? 65 : 97) + (c <= 'Z' ? 120120 : 120146))
+                            : c;
+                    }).join('')
+                },
+                {
+                    name: "Monospace",
+                    description: "𝙼𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎",
+                    transform: text => text.split('').map(c => {
+                        const code = c.charCodeAt(0);
+                        return (code >= 65 && code <= 90) || (code >= 97 && code <= 122) 
+                            ? String.fromCharCode(code + 119743 - (c <= 'Z' ? 65 : 97) + 120320)
+                            : c;
+                    }).join('')
+                },
+                {
+                    name: "Circled",
+                    description: "ⓒⓘⓡⓒⓛⓔⓓ",
+                    transform: text => text.split('').map(c => {
+                        const code = c.charCodeAt(0);
+                        return (code >= 65 && code <= 90) 
+                            ? String.fromCharCode(code + 9333 - 65)
+                            : (code >= 97 && code <= 122)
+                            ? String.fromCharCode(code + 9327 - 97)
+                            : c;
+                    }).join('')
+                },
+                {
+                    name: "Reverse",
+                    description: "ɿɘxɈ ɘꙅɿɘvɘᴙ",
+                    transform: text => {
+                        const reverseMap = {
+                            'a': 'ɐ', 'b': 'q', 'c': 'ɔ', 'd': 'p', 'e': 'ɘ',
+                            'f': 'ɟ', 'g': 'ƃ', 'h': 'ɥ', 'i': 'ᴉ', 'j': 'ɾ',
+                            'k': 'ʞ', 'l': 'l', 'm': 'ɯ', 'n': 'u', 'o': 'o',
+                            'p': 'd', 'q': 'b', 'r': 'ɹ', 's': 'ꙅ', 't': 'Ɉ',
+                            'u': 'n', 'v': 'ʌ', 'w': 'ʍ', 'x': 'x', 'y': 'ʎ',
+                            'z': 'z', 'A': '∀', 'B': '𐐒', 'C': 'Ɔ', 'D': 'ᗡ',
+                            'E': 'Ǝ', 'F': 'Ⅎ', 'G': '⅁', 'H': 'H', 'I': 'I',
+                            'J': 'ſ', 'K': '⋊', 'L': '˥', 'M': 'W', 'N': 'N',
+                            'O': 'O', 'P': 'Ԁ', 'Q': 'Ό', 'R': 'ᴚ', 'S': 'S',
+                            'T': '⊥', 'U': '∩', 'V': 'Λ', 'W': 'M', 'X': 'X',
+                            'Y': '⅄', 'Z': 'Z'
+                        };
+                        return text.split('').reverse().map(c => reverseMap[c] || c).join('');
+                    }
+                },
+                {
+                    name: "Small Caps",
+                    description: "sᴍᴀʟʟ ᴄᴀᴘs",
+                    transform: text => text.split('').map(c => {
+                        const code = c.charCodeAt(0);
+                        return (code >= 97 && code <= 122) 
+                            ? String.fromCharCode(code - 32 + 7424)
+                            : c;
+                    }).join('')
+                },
+                {
+                    name: "Strikethrough",
+                    description: "s̶t̶r̶i̶k̶e̶t̶h̶r̶o̶u̶g̶h̶",
+                    transform: text => text.split('').map(c => c + '\u0336').join('')
+                },
+                {
+                    name: "Underline",
+                    description: "u̲n̲d̲e̲r̲l̲i̲n̲e̲",
+                    transform: text => text.split('').map(c => c + '\u0332').join('')
+                },
+                {
+                    name: "Dotted",
+                    description: "d͟o͟t͟t͟e͟d͟",
+                    transform: text => text.split('').map(c => c + '\u035F').join('')
+                },
+                {
+                    name: "Cursive",
+                    description: "ᶜᵘʳˢⁱᵛᵉ",
+                    transform: text => text.split('').map(c => {
+                        const map = {
+                            'a': 'ᵃ', 'b': 'ᵇ', 'c': 'ᶜ', 'd': 'ᵈ', 'e': 'ᵉ',
+                            'f': 'ᶠ', 'g': 'ᵍ', 'h': 'ʰ', 'i': 'ⁱ', 'j': 'ʲ',
+                            'k': 'ᵏ', 'l': 'ˡ', 'm': 'ᵐ', 'n': 'ⁿ', 'o': 'ᵒ',
+                            'p': 'ᵖ', 'q': 'ᑫ', 'r': 'ʳ', 's': 'ˢ', 't': 'ᵗ',
+                            'u': 'ᵘ', 'v': 'ᵛ', 'w': 'ʷ', 'x': 'ˣ', 'y': 'ʸ',
+                            'z': 'ᶻ', 'A': 'ᴬ', 'B': 'ᴮ', 'C': 'ᶜ', 'D': 'ᴰ',
+                            'E': 'ᴱ', 'F': 'ᶠ', 'G': 'ᴳ', 'H': 'ᴴ', 'I': 'ᴵ',
+                            'J': 'ᴶ', 'K': 'ᴷ', 'L': 'ᴸ', 'M': 'ᴹ', 'N': 'ᴺ',
+                            'O': 'ᴼ', 'P': 'ᴾ', 'Q': 'ᵠ', 'R': 'ᴿ', 'S': 'ˢ',
+                            'T': 'ᵀ', 'U': 'ᵁ', 'V': 'ⱽ', 'W': 'ᵂ', 'X': 'ˣ',
+                            'Y': 'ʸ', 'Z': 'ᶻ'
+                        };
+                        return map[c] || c;
+                    }).join('')
+                }
+            ];
+
+            // DOM elements
+            const normalText = document.getElementById('normal-text');
+            const fancyText = document.getElementById('fancy-text');
+            const generateBtn = document.getElementById('generate-btn');
+            const copyBtn = document.getElementById('copy-btn');
+            const stylesContainer = document.getElementById('styles-container');
+            const notification = document.getElementById('notification');
+
+            // Populate styles
+            textStyles.forEach(style => {
+                const styleCard = document.createElement('div');
+                styleCard.className = 'style-card';
+                styleCard.innerHTML = `
+                    <h3>${style.name}</h3>
+                    <p>${style.description}</p>
+                `;
+                styleCard.addEventListener('click', () => {
+                    normalText.value = style.description;
+                    generateFancyText();
+                });
+                stylesContainer.appendChild(styleCard);
+            });
+
+            // Generate fancy text
+            function generateFancyText() {
+                const text = normalText.value;
+                if (!text.trim()) {
+                    fancyText.value = '';
+                    return;
+                }
+
+                // Apply all transformations to show variety
+                let transformedText = '';
+                textStyles.forEach((style, index) => {
+                    if (index < 5) { // Only show first 5 styles in preview
+                        transformedText += `${style.name}:\n${style.transform(text)}\n\n`;
+                    }
+                });
+
+                fancyText.value = transformedText;
+            }
+
+            // Copy to clipboard
+            function copyToClipboard() {
+                if (!fancyText.value.trim()) return;
+                
+                fancyText.select();
+                document.execCommand('copy');
+                
+                // Show notification
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 2000);
+            }
+
+            // Event listeners
+            generateBtn.addEventListener('click', generateFancyText);
+            copyBtn.addEventListener('click', copyToClipboard);
+            normalText.addEventListener('input', generateFancyText);
+
+            // Initialize with sample text
+            normalText.value = 'Fancy Text';
+            generateFancyText();
+        });
+    </script>
+</body>
+</html>
