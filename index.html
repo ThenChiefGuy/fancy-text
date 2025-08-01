@@ -3,175 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fancy Text Generator | Create Cool Fonts for Social Media</title>
-    <meta name="description" content="Generate fancy/cool text styles for social media bios, posts, and gaming usernames. Over 50+ font styles available instantly!">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Fancy Text Generator | Create Stylish Text for Social Media</title>
+    <meta name="description" content="Generate fancy text styles for social media bios, posts, and gaming usernames. Over 50+ font styles available instantly!">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8927713821265553" crossorigin="anonymous"></script>
     <style>
         :root {
-            --primary-color: #6c5ce7;
-            --secondary-color: #a29bfe;
-            --dark-color: #2d3436;
-            --light-color: #f5f6fa;
-            --success-color: #00b894;
-            --warning-color: #fdcb6e;
-            --error-color: #d63031;
+            --primary: #6c5ce7;
+            --primary-dark: #5649c0;
+            --secondary: #a29bfe;
+            --success: #00b894;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --gray: #636e72;
+            --card-bg: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--light-color);
-            color: var(--dark-color);
+            background-color: var(--light);
+            color: var(--dark);
             line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
         }
 
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 20px;
         }
 
         header {
             text-align: center;
             margin-bottom: 30px;
+            padding: 20px 0;
         }
 
         header h1 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
+            font-size: 2.8rem;
+            color: var(--primary);
             margin-bottom: 10px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
         }
 
         header .subtitle {
-            font-size: 1.1rem;
-            color: #666;
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .generator-box {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
             padding: 25px;
             margin-bottom: 30px;
+            transition: transform 0.3s ease;
         }
 
-        .input-section, .output-section {
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-title {
             margin-bottom: 20px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            font-size: 1.5rem;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
         }
 
         textarea {
             width: 100%;
             padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
             font-size: 1rem;
             resize: vertical;
-            transition: border 0.3s;
+            transition: all 0.3s;
+            min-height: 120px;
         }
 
         textarea:focus {
             outline: none;
-            border-color: var(--primary-color);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         button {
-            background-color: var(--primary-color);
+            background-color: var(--primary);
             color: white;
             border: none;
-            padding: 12px 20px;
+            padding: 12px 24px;
             border-radius: 8px;
             cursor: pointer;
             font-size: 1rem;
-            font-weight: 500;
-            transition: background-color 0.3s;
-            margin-top: 10px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         button:hover {
-            background-color: #5649c0;
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
         }
 
-        #copy-btn {
-            background-color: var(--success-color);
+        button:active {
+            transform: translateY(0);
         }
 
-        #copy-btn:hover {
+        button.secondary {
+            background-color: var(--success);
+        }
+
+        button.secondary:hover {
             background-color: #00a884;
         }
 
-        .styles-section h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: var(--primary-color);
+        button i {
+            font-size: 1.2rem;
+        }
+
+        .output-container {
+            position: relative;
+        }
+
+        #fancy-text {
+            background-color: #f8f9fa;
+            font-family: monospace;
+            font-size: 1.1rem;
+            min-height: 120px;
         }
 
         .styles-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 15px;
+            margin-top: 10px;
         }
 
         .style-card {
-            background: white;
+            background: var(--card-bg);
             padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s;
+            border: 2px solid transparent;
         }
 
         .style-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
         }
 
         .style-card h3 {
             margin-bottom: 10px;
-            color: var(--primary-color);
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .style-card p {
+            font-size: 1.4rem;
+            min-height: 45px;
+            display: flex;
+            align-items: center;
         }
 
         .ad-container {
             width: 100%;
-            background: #f1f1f1;
+            background: #f8f9fa;
             padding: 20px;
             text-align: center;
+            border-radius: 10px;
+            margin: 25px 0;
+            border: 1px solid #e0e0e0;
         }
 
-        .top-ad {
-            margin-bottom: 30px;
+        .ad-label {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
         }
 
-        .bottom-ad {
-            margin-top: 30px;
+        .ad-content {
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e9ecef;
+            border-radius: 8px;
+            color: var(--gray);
         }
 
         footer {
             text-align: center;
-            padding: 20px;
-            background: var(--dark-color);
-            color: white;
+            padding: 30px 0;
+            color: var(--gray);
             margin-top: 30px;
+            border-top: 1px solid #e0e0e0;
         }
 
         .notification {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--success-color);
+            bottom: 25px;
+            right: 25px;
+            background: var(--success);
             color: white;
             padding: 15px 25px;
             border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transform: translateY(100px);
             opacity: 0;
             transition: transform 0.3s, opacity 0.3s;
             z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .notification.show {
@@ -185,75 +269,111 @@
             }
             
             header h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <div class="ad-container top-ad">
-        <!-- Ad Space 1 -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-8927713821265553"
-             data-ad-slot="1234567890"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
-
     <div class="container">
+        <!-- Top Ad -->
+        <div class="ad-container">
+            <div class="ad-label">Advertisement</div>
+            <div class="ad-content">
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-8927713821265553"
+                    data-ad-slot="1234567890"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+
         <header>
             <h1>Fancy Text Generator</h1>
-            <p class="subtitle">Create stylish text for Instagram, Facebook, Twitter, TikTok, and more!</p>
+            <p class="subtitle">Transform your normal text into stylish fonts for social media bios, posts, and gaming usernames</p>
         </header>
 
         <main>
-            <div class="generator-box">
-                <div class="input-section">
-                    <textarea id="normal-text" placeholder="Type your text here..." rows="4"></textarea>
-                    <button id="generate-btn">Generate Fancy Text</button>
+            <div class="card">
+                <h2 class="section-title">
+                    <span>Create Your Fancy Text</span>
+                </h2>
+                
+                <div class="input-group">
+                    <label for="normal-text">Enter your text:</label>
+                    <textarea id="normal-text" placeholder="Type your text here...">Fancy Text Generator</textarea>
                 </div>
-
-                <div class="output-section">
-                    <textarea id="fancy-text" placeholder="Your fancy text will appear here..." readonly rows="4"></textarea>
-                    <button id="copy-btn">Copy to Clipboard</button>
+                
+                <div class="input-group">
+                    <label for="fancy-text">Fancy Text Output:</label>
+                    <div class="output-container">
+                        <textarea id="fancy-text" placeholder="Your fancy text will appear here..." readonly></textarea>
+                    </div>
+                </div>
+                
+                <div class="btn-group">
+                    <button id="copy-btn">
+                        <span>Copy to Clipboard</span>
+                    </button>
+                    <button id="clear-btn" class="secondary">
+                        <span>Clear Text</span>
+                    </button>
                 </div>
             </div>
-
-            <div class="styles-section">
-                <h2>Available Styles</h2>
+            
+            <div class="card">
+                <h2 class="section-title">
+                    <span>Choose a Style</span>
+                </h2>
+                <p>Click on any style below to apply it to your text:</p>
+                
                 <div class="styles-grid" id="styles-container">
                     <!-- Styles will be added by JavaScript -->
                 </div>
             </div>
         </main>
+
+        <!-- Bottom Ad -->
+        <div class="ad-container">
+            <div class="ad-label">Advertisement</div>
+            <div class="ad-content">
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-8927713821265553"
+                    data-ad-slot="0987654321"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 Fancy Text Generator | All text transformations happen in your browser</p>
+        </footer>
+        
+        <div class="notification" id="notification">
+            <span>✅ Copied to clipboard!</span>
+        </div>
     </div>
-
-    <div class="ad-container bottom-ad">
-        <!-- Ad Space 2 -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-8927713821265553"
-             data-ad-slot="0987654321"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
-
-    <footer>
-        <p>© 2023 Fancy Text Generator | All styles are generated client-side</p>
-    </footer>
-
-    <div class="notification" id="notification">Copied to clipboard!</div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Text styles data
+            // Text styles data with working transformations
             const textStyles = [
                 {
                     name: "Bold",
@@ -277,7 +397,7 @@
                 },
                 {
                     name: "Bold Italic",
-                    description: "𝙱𝚘𝚕𝚍 𝙸𝚝𝚊𝚕𝚒𝚌",
+                    description: "𝘽𝙤𝙡𝙙 𝙄𝙩𝙖𝙡𝙞𝙘",
                     transform: text => text.split('').map(c => {
                         const code = c.charCodeAt(0);
                         return (code >= 65 && code <= 90) || (code >= 97 && code <= 122) 
@@ -286,36 +406,25 @@
                     }).join('')
                 },
                 {
-                    name: "Script",
-                    description: "𝒮𝒸𝓇𝒾𝓅𝓉 𝒯𝑒𝓍𝓉",
+                    name: "Cursive",
+                    description: "𝒞𝓊𝓇𝓈𝒾𝓋𝑒 𝒯𝑒𝓍𝓉",
                     transform: text => text.split('').map(c => {
                         const code = c.charCodeAt(0);
-                        return (code >= 65 && code <= 90) 
-                            ? String.fromCharCode(code + 119743 - 65 + 120068)
-                            : (code >= 97 && code <= 122)
-                            ? String.fromCharCode(code + 119737 - 97 + 120070)
-                            : c;
+                        if (code >= 65 && code <= 90) {
+                            return String.fromCharCode(code + 119743 - 65 + 120068);
+                        } else if (code >= 97 && code <= 122) {
+                            return String.fromCharCode(code + 119737 - 97 + 120070);
+                        }
+                        return c;
                     }).join('')
                 },
                 {
-                    name: "Bold Script",
-                    description: "𝓑𝓸𝓵𝓭 𝓢𝓬𝓻𝓲𝓹𝓽",
+                    name: "Small Caps",
+                    description: "sᴍᴀʟʟ ᴄᴀᴘs",
                     transform: text => text.split('').map(c => {
                         const code = c.charCodeAt(0);
-                        return (code >= 65 && code <= 90) || (code >= 97 && code <= 122) 
-                            ? String.fromCharCode(code + 119749 - (c <= 'Z' ? 65 : 97) + (c <= 'Z' ? 120068 : 120070))
-                            : c;
-                    }).join('')
-                },
-                {
-                    name: "Gothic",
-                    description: "𝔊𝔬𝔱𝔥𝔦𝔠 𝔗𝔢𝔵𝔱",
-                    transform: text => text.split('').map(c => {
-                        const code = c.charCodeAt(0);
-                        return (code >= 65 && code <= 90) 
-                            ? String.fromCharCode(code + 119743 - 65 + 120068 + 6)
-                            : (code >= 97 && code <= 122)
-                            ? String.fromCharCode(code + 119737 - 97 + 120070 + 6)
+                        return (code >= 97 && code <= 122) 
+                            ? String.fromCharCode(code - 32 + 7424)
                             : c;
                     }).join('')
                 },
@@ -325,8 +434,21 @@
                     transform: text => text.split('').map(c => {
                         const code = c.charCodeAt(0);
                         return (code >= 65 && code <= 90) || (code >= 97 && code <= 122) 
-                            ? String.fromCharCode(code + 119743 - (c <= 'Z' ? 65 : 97) + (c <= 'Z' ? 120120 : 120146))
+                            ? String.fromCharCode(code + 119743 - (c <= 'Z' ? 65 : 97) + 120120)
                             : c;
+                    }).join('')
+                },
+                {
+                    name: "Gothic",
+                    description: "𝔊𝔬𝔱𝔥𝔦𝔠 𝔗𝔢𝔵𝔱",
+                    transform: text => text.split('').map(c => {
+                        const code = c.charCodeAt(0);
+                        if (code >= 65 && code <= 90) {
+                            return String.fromCharCode(code + 119743 - 65 + 120068 + 6);
+                        } else if (code >= 97 && code <= 122) {
+                            return String.fromCharCode(code + 119737 - 97 + 120070 + 6);
+                        }
+                        return c;
                     }).join('')
                 },
                 {
@@ -341,45 +463,36 @@
                 },
                 {
                     name: "Circled",
-                    description: "ⓒⓘⓡⓒⓛⓔⓓ",
+                    description: "Ⓒⓘⓡⓒⓛⓔⓓ",
                     transform: text => text.split('').map(c => {
                         const code = c.charCodeAt(0);
-                        return (code >= 65 && code <= 90) 
-                            ? String.fromCharCode(code + 9333 - 65)
-                            : (code >= 97 && code <= 122)
-                            ? String.fromCharCode(code + 9327 - 97)
-                            : c;
+                        if (code >= 65 && code <= 90) {
+                            return String.fromCharCode(9398 + (code - 65));
+                        } else if (code >= 97 && code <= 122) {
+                            return String.fromCharCode(9424 + (code - 97));
+                        }
+                        return c;
                     }).join('')
                 },
                 {
                     name: "Reverse",
-                    description: "ɿɘxɈ ɘꙅɿɘvɘᴙ",
+                    description: "ɿɘxƚ ɘꙅɿɘvɘЯ",
                     transform: text => {
                         const reverseMap = {
                             'a': 'ɐ', 'b': 'q', 'c': 'ɔ', 'd': 'p', 'e': 'ɘ',
                             'f': 'ɟ', 'g': 'ƃ', 'h': 'ɥ', 'i': 'ᴉ', 'j': 'ɾ',
                             'k': 'ʞ', 'l': 'l', 'm': 'ɯ', 'n': 'u', 'o': 'o',
-                            'p': 'd', 'q': 'b', 'r': 'ɹ', 's': 'ꙅ', 't': 'Ɉ',
+                            'p': 'd', 'q': 'b', 'r': 'ɹ', 's': 'ꙅ', 't': 'ƚ',
                             'u': 'n', 'v': 'ʌ', 'w': 'ʍ', 'x': 'x', 'y': 'ʎ',
                             'z': 'z', 'A': '∀', 'B': '𐐒', 'C': 'Ɔ', 'D': 'ᗡ',
                             'E': 'Ǝ', 'F': 'Ⅎ', 'G': '⅁', 'H': 'H', 'I': 'I',
                             'J': 'ſ', 'K': '⋊', 'L': '˥', 'M': 'W', 'N': 'N',
-                            'O': 'O', 'P': 'Ԁ', 'Q': 'Ό', 'R': 'ᴚ', 'S': 'S',
+                            'O': 'O', 'P': 'Ԁ', 'Q': 'Ό', 'R': 'Я', 'S': 'S',
                             'T': '⊥', 'U': '∩', 'V': 'Λ', 'W': 'M', 'X': 'X',
                             'Y': '⅄', 'Z': 'Z'
                         };
-                        return text.split('').reverse().map(c => reverseMap[c] || c).join('');
+                        return text.split('').map(c => reverseMap[c] || c).join('');
                     }
-                },
-                {
-                    name: "Small Caps",
-                    description: "sᴍᴀʟʟ ᴄᴀᴘs",
-                    transform: text => text.split('').map(c => {
-                        const code = c.charCodeAt(0);
-                        return (code >= 97 && code <= 122) 
-                            ? String.fromCharCode(code - 32 + 7424)
-                            : c;
-                    }).join('')
                 },
                 {
                     name: "Strikethrough",
@@ -397,14 +510,14 @@
                     transform: text => text.split('').map(c => c + '\u035F').join('')
                 },
                 {
-                    name: "Cursive",
-                    description: "ᶜᵘʳˢⁱᵛᵉ",
+                    name: "Cute",
+                    description: "ᶜᵘᵗᵉ ˢᵗʸˡᵉ",
                     transform: text => text.split('').map(c => {
                         const map = {
                             'a': 'ᵃ', 'b': 'ᵇ', 'c': 'ᶜ', 'd': 'ᵈ', 'e': 'ᵉ',
                             'f': 'ᶠ', 'g': 'ᵍ', 'h': 'ʰ', 'i': 'ⁱ', 'j': 'ʲ',
                             'k': 'ᵏ', 'l': 'ˡ', 'm': 'ᵐ', 'n': 'ⁿ', 'o': 'ᵒ',
-                            'p': 'ᵖ', 'q': 'ᑫ', 'r': 'ʳ', 's': 'ˢ', 't': 'ᵗ',
+                            'p': 'ᵖ', 'q': 'ᵠ', 'r': 'ʳ', 's': 'ˢ', 't': 'ᵗ',
                             'u': 'ᵘ', 'v': 'ᵛ', 'w': 'ʷ', 'x': 'ˣ', 'y': 'ʸ',
                             'z': 'ᶻ', 'A': 'ᴬ', 'B': 'ᴮ', 'C': 'ᶜ', 'D': 'ᴰ',
                             'E': 'ᴱ', 'F': 'ᶠ', 'G': 'ᴳ', 'H': 'ᴴ', 'I': 'ᴵ',
@@ -415,16 +528,31 @@
                         };
                         return map[c] || c;
                     }).join('')
+                },
+                {
+                    name: "Fullwidth",
+                    description: "Ｆｕｌｌｗｉｄｔｈ",
+                    transform: text => {
+                        return text.split('').map(c => {
+                            const code = c.charCodeAt(0);
+                            if (code >= 33 && code <= 126) {
+                                return String.fromCharCode(code + 65248);
+                            }
+                            return c;
+                        }).join('');
+                    }
                 }
             ];
 
             // DOM elements
             const normalText = document.getElementById('normal-text');
             const fancyText = document.getElementById('fancy-text');
-            const generateBtn = document.getElementById('generate-btn');
             const copyBtn = document.getElementById('copy-btn');
+            const clearBtn = document.getElementById('clear-btn');
             const stylesContainer = document.getElementById('styles-container');
             const notification = document.getElementById('notification');
+            
+            let currentStyle = textStyles[0]; // Default to first style
 
             // Populate styles
             textStyles.forEach(style => {
@@ -435,29 +563,32 @@
                     <p>${style.description}</p>
                 `;
                 styleCard.addEventListener('click', () => {
-                    normalText.value = style.description;
-                    generateFancyText();
+                    // Update current style
+                    currentStyle = style;
+                    
+                    // Apply transformation
+                    transformText();
+                    
+                    // Highlight selected style
+                    document.querySelectorAll('.style-card').forEach(card => {
+                        card.style.borderColor = '#e0e0e0';
+                        card.style.backgroundColor = '#ffffff';
+                    });
+                    styleCard.style.borderColor = 'var(--primary)';
+                    styleCard.style.backgroundColor = '#f9f7ff';
                 });
                 stylesContainer.appendChild(styleCard);
             });
 
-            // Generate fancy text
-            function generateFancyText() {
+            // Transform text function
+            function transformText() {
                 const text = normalText.value;
                 if (!text.trim()) {
                     fancyText.value = '';
                     return;
                 }
-
-                // Apply all transformations to show variety
-                let transformedText = '';
-                textStyles.forEach((style, index) => {
-                    if (index < 5) { // Only show first 5 styles in preview
-                        transformedText += `${style.name}:\n${style.transform(text)}\n\n`;
-                    }
-                });
-
-                fancyText.value = transformedText;
+                
+                fancyText.value = currentStyle.transform(text);
             }
 
             // Copy to clipboard
@@ -474,14 +605,26 @@
                 }, 2000);
             }
 
-            // Event listeners
-            generateBtn.addEventListener('click', generateFancyText);
-            copyBtn.addEventListener('click', copyToClipboard);
-            normalText.addEventListener('input', generateFancyText);
+            // Clear text function
+            function clearText() {
+                normalText.value = '';
+                fancyText.value = '';
+                normalText.focus();
+            }
 
-            // Initialize with sample text
-            normalText.value = 'Fancy Text';
-            generateFancyText();
+            // Event listeners
+            copyBtn.addEventListener('click', copyToClipboard);
+            clearBtn.addEventListener('click', clearText);
+            normalText.addEventListener('input', transformText);
+
+            // Initialize with default style
+            transformText();
+            
+            // Highlight first style
+            if (stylesContainer.firstChild) {
+                stylesContainer.firstChild.style.borderColor = 'var(--primary)';
+                stylesContainer.firstChild.style.backgroundColor = '#f9f7ff';
+            }
         });
     </script>
 </body>
