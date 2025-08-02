@@ -1,0 +1,35 @@
+Typography Tips
+
+Typography plays a crucial role in how users read, navigate, and perceive content on digital platforms. Good typography enhances readability, usability, and visual appeal.
+
+1. Choose the Right Font:
+- Use web-safe or licensed fonts.
+- Sans-serif fonts (like Roboto or Open Sans) work best for screens.
+- Avoid overly decorative fonts for body text.
+
+2. Maintain Visual Hierarchy:
+- Use different font sizes and weights for headings, subheadings, and body text.
+- Bold or italicize sparingly to emphasize important points.
+
+3. Ensure Readability:
+- Use a font size of at least 16px for body text.
+- Line height should be 1.4 to 1.6 times the font size.
+- Maintain good contrast between text and background.
+
+4. Limit Font Combinations:
+- Stick to 1–2 fonts per project to keep design clean.
+- Use one font for headings and another for body, or vary weight/style within one family.
+
+5. Align Text Properly:
+- Left-align body text for Western languages.
+- Avoid center-aligning long paragraphs.
+
+6. Responsive Typography:
+- Use relative units like `em`, `rem`, or `%` for scalable text.
+- Consider media queries to adjust typography on smaller screens.
+
+7. Test Across Devices:
+- Check how fonts render on different browsers and screen sizes.
+- Avoid fonts that rely heavily on specific operating systems.
+
+Good typography makes your content easier to consume and more enjoyable to read. Keep it simple, clean, and consistent.
