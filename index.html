@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fancy Text Generator | Create Fancy Text</title>
-    <meta name="description" content="Generate fancy text styles for social media bios, posts or gaming usernames. Over 50+ font styles available instantly!">
+    <title>Fancy Text Generator | Create Stylish Fonts for Social Media</title>
+    <meta name="description" content="Transform your text with our free fancy text generator. Create stylish fonts for Instagram, TikTok, Twitter, and more. Learn about Unicode text styling.">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8927713821265553" crossorigin="anonymous"></script>
     <style>
         :root {
@@ -30,45 +30,49 @@
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
-            padding: 20px;
+            padding: 0;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 30px 0;
             text-align: center;
-            margin-bottom: 30px;
-            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         header h1 {
             font-size: 2.8rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            margin-bottom: 15px;
             font-weight: 800;
         }
 
         header .subtitle {
-            font-size: 1.2rem;
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto;
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            opacity: 0.9;
         }
 
         .card {
             background: var(--card-bg);
             border-radius: 12px;
             box-shadow: var(--shadow);
-            padding: 25px;
-            margin-bottom: 30px;
+            padding: 30px;
+            margin: 30px 0;
             transition: transform 0.3s ease;
         }
 
@@ -77,69 +81,79 @@
         }
 
         .section-title {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 15px;
         }
 
-        .section-title i {
-            font-size: 1.5rem;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
         }
 
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: 600;
             color: var(--dark);
+            font-size: 1.1rem;
         }
 
         textarea {
             width: 100%;
-            padding: 15px;
+            padding: 18px;
             border: 2px solid #e0e0e0;
             border-radius: 10px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             resize: vertical;
             transition: all 0.3s;
-            min-height: 120px;
+            min-height: 150px;
         }
 
         textarea:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+            box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.2);
         }
 
         .btn-group {
             display: flex;
-            gap: 12px;
+            gap: 15px;
             flex-wrap: wrap;
+            margin-top: 20px;
         }
 
         button {
             background-color: var(--primary);
             color: white;
             border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
+            padding: 15px 28px;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         button:hover {
             background-color: var(--primary-dark);
             transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
         button:active {
@@ -154,108 +168,202 @@
             background-color: #00a884;
         }
 
-        button i {
-            font-size: 1.2rem;
-        }
-
         .output-container {
             position: relative;
         }
 
         #fancy-text {
             background-color: #f8f9fa;
-            font-family: monospace;
-            font-size: 1.1rem;
-            min-height: 120px;
+            font-size: 1.2rem;
+            min-height: 150px;
+            line-height: 1.8;
         }
 
         .styles-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 15px;
-            margin-top: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .style-card {
             background: var(--card-bg);
-            padding: 15px;
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
             cursor: pointer;
             transition: all 0.3s;
             border: 2px solid transparent;
         }
 
         .style-card:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.1);
             border-color: var(--primary);
         }
 
         .style-card h3 {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             color: var(--primary);
-            font-size: 1.1rem;
+            font-size: 1.3rem;
         }
 
         .style-card p {
-            font-size: 1.4rem;
-            min-height: 45px;
+            font-size: 1.6rem;
+            min-height: 50px;
             display: flex;
             align-items: center;
         }
 
         .ad-container {
             width: 100%;
-            background: #f8f9fa;
             padding: 20px;
             text-align: center;
             border-radius: 10px;
-            margin: 25px 0;
+            margin: 40px 0;
+            background: #f8f9fa;
             border: 1px solid #e0e0e0;
         }
 
         .ad-label {
             text-transform: uppercase;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: var(--gray);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             letter-spacing: 1px;
+            font-weight: 600;
         }
 
         .ad-content {
-            min-height: 90px;
+            min-height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #e9ecef;
             border-radius: 8px;
             color: var(--gray);
+            background: #e9ecef;
+            padding: 15px;
+        }
+
+        .content-section {
+            margin: 40px 0;
+        }
+
+        .content-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+
+        .content-section p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .content-card h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .content-card ul {
+            padding-left: 20px;
+        }
+
+        .content-card li {
+            margin-bottom: 12px;
+            line-height: 1.6;
         }
 
         footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 30px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 15px;
+        }
+
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .copyright {
             text-align: center;
-            padding: 30px 0;
-            color: var(--gray);
-            margin-top: 30px;
-            border-top: 1px solid #e0e0e0;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 1rem;
         }
 
         .notification {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 30px;
+            right: 30px;
             background: var(--success);
             color: white;
-            padding: 15px 25px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            padding: 18px 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
             transform: translateY(100px);
             opacity: 0;
             transition: transform 0.3s, opacity 0.3s;
             z-index: 1000;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            font-size: 1.1rem;
         }
 
         .notification.show {
@@ -280,10 +388,21 @@
                 width: 100%;
                 justify-content: center;
             }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
 <body>
+    <header>
+        <div class="header-content">
+            <h1>Fancy Text Generator</h1>
+            <p class="subtitle">Transform your text into stylish fonts for social media, gaming, and creative projects</p>
+        </div>
+    </header>
+
     <div class="container">
         <!-- Top Ad -->
         <div class="ad-container">
@@ -301,52 +420,85 @@
             </div>
         </div>
 
-        <header>
-            <h1>Fancy Text Generator</h1>
-            <p class="subtitle">Transform your normal text into stylish fonts for social media bios, posts, and gaming usernames</p>
-        </header>
-
-        <main>
-            <div class="card">
-                <h2 class="section-title">
-                    <span>Create Your Fancy Text</span>
-                </h2>
-                
-                <div class="input-group">
-                    <label for="normal-text">Enter your text:</label>
-                    <textarea id="normal-text" placeholder="Type your text here...">Fancy Text</textarea>
-                </div>
-                
-                <div class="input-group">
-                    <label for="fancy-text">Fancy Text Output:</label>
-                    <div class="output-container">
-                        <textarea id="fancy-text" placeholder="Your fancy text will appear here..." readonly></textarea>
-                    </div>
-                </div>
-                
-                <div class="btn-group">
-                    <button id="copy-btn">
-                        <span>Copy to Clipboard</span>
-                    </button>
-                    <button id="clear-btn" class="secondary">
-                        <span>Clear Text</span>
-                    </button>
+        <div class="card">
+            <h2 class="section-title">Create Stylish Text</h2>
+            <p>Our generator uses Unicode characters to transform your text into visually appealing styles. Simply type your text below and choose a style to see it transformed instantly.</p>
+            
+            <div class="input-group">
+                <label for="normal-text">Enter your text:</label>
+                <textarea id="normal-text" placeholder="Type your text here...">Fancy Text Generator</textarea>
+            </div>
+            
+            <div class="input-group">
+                <label for="fancy-text">Fancy Text Output:</label>
+                <div class="output-container">
+                    <textarea id="fancy-text" placeholder="Your transformed text will appear here..." readonly></textarea>
                 </div>
             </div>
             
-            <div class="card">
-                <h2 class="section-title">
-                    <span>Choose a Style</span>
-                </h2>
-                <p>Click on any style below to apply it to your text:</p>
+            <div class="btn-group">
+                <button id="copy-btn">
+                    <span>Copy to Clipboard</span>
+                </button>
+                <button id="clear-btn" class="secondary">
+                    <span>Clear Text</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2 class="section-title">Text Styles</h2>
+            <p>Choose from our collection of text styles. Each style uses special Unicode characters to create unique visual effects.</p>
+            
+            <div class="styles-grid" id="styles-container">
+                <!-- Styles will be added by JavaScript -->
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">About Fancy Text</h2>
+            <p>Fancy text, also known as styled text or Unicode text, uses special characters from the Unicode standard to create visually distinct text. Unlike standard fonts, these characters are supported across most platforms and devices, making them perfect for social media bios, usernames, and creative projects.</p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>How It Works</h3>
+                    <p>Our generator transforms your text by replacing standard characters with their Unicode equivalents. For example:</p>
+                    <ul>
+                        <li>Standard "A" becomes mathematical bold 𝔸</li>
+                        <li>Regular "b" becomes script 𝒷</li>
+                        <li>Normal numbers become circled numbers ➊➋➌</li>
+                    </ul>
+                    <p>These transformations work because modern systems include Unicode support, allowing these special characters to display properly.</p>
+                </div>
                 
-                <div class="styles-grid" id="styles-container">
-                    <!-- Styles will be added by JavaScript -->
+                <div class="content-card">
+                    <h3>Best Practices</h3>
+                    <ul>
+                        <li><strong>Platform Compatibility:</strong> Test your text on target platforms</li>
+                        <li><strong>Readability:</strong> Avoid overly complex styles for important text</li>
+                        <li><strong>Length:</strong> Fancy text may count as more characters</li>
+                        <li><strong>Accessibility:</strong> Screen readers may not pronounce special characters correctly</li>
+                        <li><strong>Branding:</strong> Use consistently for memorable usernames</li>
+                    </ul>
+                    <p>For professional use, pair fancy text with clear communication in standard fonts.</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Popular Uses</h3>
+                    <ul>
+                        <li>Social media bios (Instagram, TikTok, Twitter)</li>
+                        <li>Gaming usernames and clan tags</li>
+                        <li>Creative presentations and designs</li>
+                        <li>Personal branding and online identities</li>
+                        <li>Special event invitations and announcements</li>
+                        <li>Digital art and typography projects</li>
+                    </ul>
+                    <p>Fancy text adds personality to your digital presence.</p>
                 </div>
             </div>
-        </main>
+        </div>
 
-        <!-- Bottom Ad -->
+        <!-- Middle Ad -->
         <div class="ad-container">
             <div class="ad-label">Advertisement</div>
             <div class="ad-content">
@@ -361,9 +513,115 @@
                 </script>
             </div>
         </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>How does fancy text work?</h3>
+                    <p>Fancy text uses special Unicode characters that look like stylized versions of standard letters. When you use our generator, it replaces your regular letters with these special characters.</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Where can I use fancy text?</h3>
+                    <p>You can use fancy text anywhere that supports Unicode characters, including most social media platforms (Instagram, Facebook, Twitter, TikTok), messaging apps, and websites.</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Why doesn't it work everywhere?</h3>
+                    <p>Some older systems or specialized applications may not fully support Unicode characters. Additionally, screen readers for visually impaired users may not pronounce these characters correctly.</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Is this the same as fonts?</h3>
+                    <p>No, these are actual characters, not fonts. This means they work even when special fonts aren't available, as long as the system has Unicode support.</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Can I use this for business?</h3>
+                    <p>Yes! Many businesses use fancy text for social media branding, promotional materials, and to create visually appealing content that stands out.</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Are there any limitations?</h3>
+                    <p>Some platforms limit the number of special characters you can use. Also, not all letters have fancy equivalents, especially for non-Latin alphabets.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2 class="section-title">Unicode Text Explained</h2>
+            <p>Unicode is a computing industry standard that provides a unique number for every character across writing systems. This enables consistent representation and handling of text across different platforms and devices.</p>
+            
+            <p>Our fancy text generator uses characters from these Unicode blocks:</p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>Mathematical Alphanumeric Symbols</h3>
+                    <p>Includes bold, italic, script, and fraktur (Gothic) letter forms originally designed for mathematical notation.</p>
+                    <p>Example: 𝒜, ℬ, 𝒞, 𝒟</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Enclosed Alphanumerics</h3>
+                    <p>Characters enclosed in circles, parentheses, or squares.</p>
+                    <p>Example: ①, Ⓐ, 🄱, 🄲</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Phonetic Extensions</h3>
+                    <p>Includes small capital letters used in phonetic transcription.</p>
+                    <p>Example: ᴀ, ʙ, ᴄ, ᴅ</p>
+                </div>
+            </div>
+            
+            <p style="margin-top: 25px;">These characters are part of the official Unicode standard and are supported by all modern operating systems and browsers. When you copy our generated text, you're copying these special Unicode characters that render as stylish text on compatible platforms.</p>
+        </div>
         
         <footer>
-            <p>© 2025 Fancy Text Generator | If you see characters like 퐍퐮, it's not a bug—your device just can't display all text styles.</p>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>Fancy Text Generator</h3>
+                        <p>Create stylish text for social media, gaming, and creative projects. Transform your text with our free online tool.</p>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Text Styles</a></li>
+                            <li><a href="#">How It Works</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="Samsung.glaxj3@gmail.com">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="uc.txt">Unicode Standard</a></li>
+                            <li><a href="smg.txt">Social Media Guidelines</a></li>
+                            <li><a href="tt.txt">Typography Tips</a></li>
+                            <li><a href="db.txt">Digital Branding</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="pp.txt">Privacy Policy</a></li>
+                            <li><a href="tos.txt">Terms of Service</a></li>
+                            <li><a href="ap.txt">Ad Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="copyright">
+                    <p>© 2025 Fancy Text Generator. All rights reserved. This site uses Google AdSense to display advertisements.</p>
+                </div>
+            </div>
         </footer>
         
         <div class="notification" id="notification">
@@ -470,6 +728,8 @@
                             return String.fromCharCode(9398 + (code - 65));
                         } else if (code >= 97 && code <= 122) {
                             return String.fromCharCode(9424 + (code - 97));
+                        } else if (code >= 48 && code <= 57) {
+                            return String.fromCharCode(9312 + (code - 48));
                         }
                         return c;
                     }).join('')
@@ -505,11 +765,6 @@
                     transform: text => text.split('').map(c => c + '\u0332').join('')
                 },
                 {
-                    name: "Dotted",
-                    description: "d͟o͟t͟t͟e͟d͟",
-                    transform: text => text.split('').map(c => c + '\u035F').join('')
-                },
-                {
                     name: "Cute",
                     description: "ᶜᵘᵗᵉ ˢᵗʸˡᵉ",
                     transform: text => text.split('').map(c => {
@@ -541,6 +796,26 @@
                             return c;
                         }).join('');
                     }
+                },
+                {
+                    name: "Square",
+                    description: "🅂🅀🅄🄰🅁🄴",
+                    transform: text => text.split('').map(c => {
+                        const map = {
+                            'a': '🄰', 'b': '🄱', 'c': '🄲', 'd': '🄳', 'e': '🄴',
+                            'f': '🄵', 'g': '🄶', 'h': '🄷', 'i': '🄸', 'j': '🄹',
+                            'k': '🄺', 'l': '🄻', 'm': '🄼', 'n': '🄽', 'o': '🄾',
+                            'p': '🄿', 'q': '🅀', 'r': '🅁', 's': '🅂', 't': '🅃',
+                            'u': '🅄', 'v': '🅅', 'w': '🅆', 'x': '🅇', 'y': '🅈',
+                            'z': '🅉', 'A': '🄰', 'B': '🄱', 'C': '🄲', 'D': '🄳',
+                            'E': '🄴', 'F': '🄵', 'G': '🄶', 'H': '🄷', 'I': '🄸',
+                            'J': '🄹', 'K': '🄺', 'L': '🄻', 'M': '🄼', 'N': '🄽',
+                            'O': '🄾', 'P': '🄿', 'Q': '🅀', 'R': '🅁', 'S': '🅂',
+                            'T': '🅃', 'U': '🅄', 'V': '🅅', 'W': '🅆', 'X': '🅇',
+                            'Y': '🅈', 'Z': '🅉'
+                        };
+                        return map[c] || c;
+                    }).join('')
                 }
             ];
 
